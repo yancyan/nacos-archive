@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: partner-service
+  profiles:
+    include: feign,tomcat,jersey
+  main:
+    allow-bean-definition-overriding: true
+  messages:
+    basename: messages/message
+    use-code-as-default-message: true
+    encoding: utf-8

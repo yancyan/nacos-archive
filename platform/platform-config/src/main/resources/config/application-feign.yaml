@@ -1,0 +1,9 @@
+feign:
+  okhttp:
+    enabled: true
+  client:
+    default-config: default
+    default:
+      connection-timeout: 60s
+      time-to-live: 60
+      time-to-live-unit: seconds

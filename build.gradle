@@ -14,6 +14,8 @@ buildscript {
 apply plugin: 'base'
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
 apply from: "$rootDir/ext.gradle"
 
 
@@ -26,13 +28,7 @@ repositories {
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
-// build时只构建jar，不构建bootJar
-configure(subprojects.findAll {
-    it.subprojects.empty && (it.name.endsWith('-api') || (it.name.startsWith('platform-')))
-}) {
-    jar { enabled = true }
-    bootJar { enabled = false }
-}
+
 // 定义所有叶子节点工程共有的逻辑
 configure(allprojects.findAll { it.subprojects.empty }) {
     apply plugin: 'java'
@@ -54,12 +50,26 @@ configure(allprojects.findAll { it.subprojects.empty }) {
 //        implementation 'org.springframework.boot:spring-boot-starter-jersey'
         implementation 'org.springframework.boot:spring-boot-starter'
         implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+        implementation 'io.github.openfeign:feign-okhttp'
         implementation 'org.springframework.boot:spring-boot-starter-jersey'
 
         compileOnly 'org.projectlombok:lombok:1.18.4'
         annotationProcessor 'org.projectlombok:lombok:1.18.4'
         annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     }
+
+    bootJar{
+        manifest{
+            attributes 'Main-Class': 'org.springframework.boot.loader.PropertiesLauncher'
+        }
+    }
+}
+
+configure(subprojects.findAll {
+    it.subprojects.empty && (it.name.endsWith('-api') || (it.name.startsWith('platform-')))
+}) {
+    jar { enabled = true }
+    bootJar { enabled = false }
 }
 
 // 定义boot service工程共有的逻辑

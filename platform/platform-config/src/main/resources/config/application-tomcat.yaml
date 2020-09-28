@@ -1,0 +1,16 @@
+server:
+  port: ${star.tomcat-port:8080}
+  servlet:
+    application-display-name: ${spring.application.name:no-domain}
+    context-path: /
+    session:
+      cookie:
+        path: /
+  tomcat:
+    accept-count: 1000
+    max-threads: 1000
+    connection-timeout: 60s
+#    accesslog:
+#      enabled: false
+#    mbeanregistry:
+#      enabled: true

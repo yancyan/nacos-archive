@@ -6,5 +6,6 @@ include 'service:partner:partner-service'
 
 include 'service:customer:customer-api'
 include 'service:customer:customer-service'
-
+include 'platform:platform-config'
+include 'platform:platform-common'
 
