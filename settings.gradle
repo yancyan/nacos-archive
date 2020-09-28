@@ -1,0 +1,10 @@
+rootProject.name = 'nacos-archive'
+
+
+include 'service:partner:partner-api'
+include 'service:partner:partner-service'
+
+include 'service:customer:customer-api'
+include 'service:customer:customer-service'
+
+
