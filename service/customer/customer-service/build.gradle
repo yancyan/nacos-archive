@@ -1,5 +1,6 @@
 dependencies {
     compile project(':service:customer:customer-api')
+    compile project(':service:partner:partner-api')
     compile project(':platform:platform-config')
 
 }

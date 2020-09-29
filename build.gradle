@@ -1,8 +1,10 @@
 buildscript {
     repositories {
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven {
-            url "https://plugins.gradle.org/m2/"
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
         }
     }
     dependencies {
@@ -12,16 +14,19 @@ buildscript {
 }
 
 apply plugin: 'base'
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.springframework.boot'
 apply from: "$rootDir/ext.gradle"
 
 
-repositories {
-    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-    mavenCentral()
+allprojects {
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+    }
 }
 
 
@@ -48,10 +53,21 @@ configure(allprojects.findAll { it.subprojects.empty }) {
 
     dependencies {
 //        implementation 'org.springframework.boot:spring-boot-starter-jersey'
+        implementation 'org.springframework.cloud:spring-cloud-context'
         implementation 'org.springframework.boot:spring-boot-starter'
         implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+        implementation "io.github.openfeign:feign-jaxrs"
         implementation 'io.github.openfeign:feign-okhttp'
         implementation 'org.springframework.boot:spring-boot-starter-jersey'
+
+
+        // For Java 11
+//        compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.7'
+//        compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.2.7'
+//        compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.2.7'
+        // https://github.com/spotify/dockerfile-maven/issues/90
+        compile group: 'javax.activation', name: 'activation', version: '1.1.1'
+
 
         compileOnly 'org.projectlombok:lombok:1.18.4'
         annotationProcessor 'org.projectlombok:lombok:1.18.4'
@@ -79,6 +95,9 @@ configure(subprojects.findAll {
     dependencies {
 
 
+
+        implementation "com.oracle.database.jdbc:ojdbc10:${ojdbc10Version}"
+        implementation "com.oracle.database.nls:orai18n:${ojdbc10Version}"
     }
 }
 

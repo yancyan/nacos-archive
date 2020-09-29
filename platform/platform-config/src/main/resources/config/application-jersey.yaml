@@ -1,3 +1,6 @@
 spring:
   jersey:
-    application-path: /${spring.application.name}
+    application-path: ${spring.application.name}
+    type: servlet
+    servlet:
+      load-on-startup: 1

@@ -6,11 +6,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
-/**
- * @author ZhuYX
- * @date 2020/9/28 20:33
- */
-@EnableFeignClients
+// /**
+//  * @author ZhuYX
+//  * @date 2020/9/28 20:33
+//  */
+@EnableFeignClients(basePackages = {
+        "com.star.customer.api.business"
+})
 @SpringBootApplication(scanBasePackages = "com.star")
 public class PartnerApplication {
 
@@ -18,11 +20,10 @@ public class PartnerApplication {
         new SpringApplicationBuilder(PartnerApplication.class).build().run(args);
     }
 
-
     @Bean
-    public ResourceConfig jerseyConfig() {
-        ResourceConfig config = new ResourceConfig();
-        config.packages("com.star.partner.api.business");
-        return config;
+    public ResourceConfig resourceConfig() {
+        ResourceConfig rs = new ResourceConfig();
+        rs.packages(true, "com.star.partner.api.business");
+        return rs;
     }
 }

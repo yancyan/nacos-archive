@@ -2,8 +2,12 @@ feign:
   okhttp:
     enabled: true
   client:
-    default-config: default
-    default:
-      connection-timeout: 60s
-      time-to-live: 60
-      time-to-live-unit: seconds
+    config:
+      default:
+        contract: feign.jaxrs.JAXRSContract  # feign使用JAX-RS定义的接口
+        connectTimeout: 60000
+        readTimeout: 60000
+      jaxrs:
+        contract: feign.jaxrs.JAXRSContract  # feign使用JAX-RS定义的接口
+        connectTimeout: 60000
+        readTimeout: 60000

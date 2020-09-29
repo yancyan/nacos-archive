@@ -1,6 +1,13 @@
+#spring:
+#  datasource:
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@10.0.250.175:1521/bosspdb
+#    username: boss_system
+#    password: boss_system
+
 
 star:
-  url: 192.168.56.1
+  url: localhost
 #  启动端口
   tomcat-port: ${star.port.${spring.application.name}}
   port:

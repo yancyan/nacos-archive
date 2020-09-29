@@ -1,6 +1,9 @@
 package com.star.customer.api.business;
 
 import com.star.customer.dto.CustomerDTO;
+import com.star.partner.api.business.PartnerService;
+import com.star.partner.dto.PartnerDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +13,10 @@ import org.springframework.stereotype.Service;
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService{
 
+
+    @Autowired
+    private PartnerService partnerService;
+
     @Override
     public CustomerDTO findById(Long id) {
         CustomerDTO customer = new CustomerDTO();
@@ -17,5 +24,10 @@ public class CustomerServiceImpl implements CustomerService{
         customer.setAge(12);
         customer.setAddress("beijing");
         return customer;
+    }
+
+    @Override
+    public PartnerDTO findPartnerById(Long id) {
+        return partnerService.findById(id);
     }
 }
