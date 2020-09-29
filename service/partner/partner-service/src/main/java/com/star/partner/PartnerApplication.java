@@ -1,5 +1,7 @@
 package com.star.partner;
 
+import com.star.common.jersey.ExMapper;
+import com.star.common.jersey.RpcHeaderFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -24,6 +26,8 @@ public class PartnerApplication {
     public ResourceConfig resourceConfig() {
         ResourceConfig rs = new ResourceConfig();
         rs.packages(true, "com.star.partner.api.business");
+        rs.register(RpcHeaderFilter.class);
+        rs.register(ExMapper.class);
         return rs;
     }
 }

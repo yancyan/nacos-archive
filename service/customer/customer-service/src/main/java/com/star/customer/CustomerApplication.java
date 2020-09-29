@@ -1,5 +1,7 @@
 package com.star.customer;
 
+import com.star.common.jersey.ExMapper;
+import com.star.common.jersey.RpcHeaderFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -21,6 +23,8 @@ public class CustomerApplication {
         ResourceConfig rs = new ResourceConfig();
         rs.packages(true, "com.star.customer.api.business");
         // rs.registerClasses(JerseyServiceAutoScanner.getPublishJerseyServiceClasses(ac, "com.star.customer.api.business"));
+        rs.register(RpcHeaderFilter.class);
+        rs.register(ExMapper.class);
         return rs;
     }
 }
