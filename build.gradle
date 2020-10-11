@@ -48,6 +48,7 @@ configure(allprojects.findAll { it.subprojects.empty }) {
             mavenBom('org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR6') {
 //                    bomProperty 'okhttp3.version', '3.9.1'
             }
+            mavenBom('com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.2.0.RELEASE')
         }
     }
 
@@ -59,6 +60,9 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         implementation "io.github.openfeign:feign-jaxrs"
         implementation 'io.github.openfeign:feign-okhttp'
         implementation 'org.springframework.boot:spring-boot-starter-jersey'
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+// https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery
+//        compile group: 'com.alibaba.cloud', name: 'spring-cloud-starter-alibaba-nacos-discovery', version: '2.2.3.RELEASE'
 
 
         // For Java 11

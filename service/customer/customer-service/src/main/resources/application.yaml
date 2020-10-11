@@ -2,7 +2,7 @@ spring:
   application:
     name: customer-service
   profiles:
-    include: feign,tomcat,jersey
+    include: feign,tomcat,jersey,nacos
   main:
     allow-bean-definition-overriding: true
   messages:
