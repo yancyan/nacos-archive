@@ -1,6 +1,8 @@
 package com.star.partner.api.business;
 
 import com.star.partner.dto.PartnerDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,6 +13,9 @@ import org.springframework.stereotype.Service;
 public class PartnerServiceImpl implements PartnerService{
 
 
+    @Autowired
+    private Registration registration;
+
     @Override
     public PartnerDTO findById(Long id) {
         PartnerDTO p  = new PartnerDTO();
@@ -18,5 +23,10 @@ public class PartnerServiceImpl implements PartnerService{
         p.setAge(10);
         p.setAddress("p_address");
         return p;
+    }
+
+    @Override
+    public String getIpAndPort() {
+        return registration.getHost() + registration.getPort();
     }
 }

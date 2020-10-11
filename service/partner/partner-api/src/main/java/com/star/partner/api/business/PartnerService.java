@@ -20,4 +20,8 @@ public interface PartnerService {
     @Path("findById/{id}")
     PartnerDTO findById(@PathParam("id") Long id);
 
+
+    @GET
+    @Path("findIpAndPort")
+    String getIpAndPort();
 }

@@ -25,4 +25,7 @@ public interface CustomerService {
     @Path("findPartnerById/{id}")
     PartnerDTO findPartnerById(@PathParam("id") Long id);
 
+    @GET
+    @Path("findIpAndPort")
+    String getIpAndPort();
 }
