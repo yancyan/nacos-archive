@@ -6,11 +6,12 @@ import org.springframework.cloud.openfeign.FeignClient;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-/**
- * @author ZhuYX
- * @date 2020/9/28 20:32
- */
-@FeignClient(name = "partnerService", path = Info.JAXRS_PATH, url = Info.URL, primary = false, contextId = "jax-rs")
+// /**
+//  * @author ZhuYX
+//  * @date 2020/9/28 20:32
+//  */
+// @FeignClient(name = "partnerService", path = Info.JAXRS_PATH, url = Info.URL, primary = false, contextId = "jax-rs")
+@FeignClient(name = "partner-service", path = Info.JAXRS_PATH)
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces({MediaType.APPLICATION_JSON})
 @Path("/v1/partner")

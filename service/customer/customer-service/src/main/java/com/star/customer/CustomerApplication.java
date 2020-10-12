@@ -6,6 +6,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +18,7 @@ import java.time.Duration;
 @EnableFeignClients(basePackages = {
         "com.star.partner.api.business"
 })
+@EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = "com.star")
 public class CustomerApplication {
     public static void main(String[] args) {

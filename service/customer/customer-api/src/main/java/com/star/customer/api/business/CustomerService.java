@@ -11,7 +11,8 @@ import javax.ws.rs.core.MediaType;
 //  * @author ZhuYX
 //  * @date 2020/9/28 17:07
 //  */
-@FeignClient(name = "customerService", path = Info.JAXRS_PATH, url = Info.URL, primary = false, contextId = "jax-rs")
+// @FeignClient(name = "customerService", path = Info.JAXRS_PATH, url = Info.URL, primary = false, contextId = "jax-rs")
+@FeignClient(name = "customer-service", path = Info.JAXRS_PATH)
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces({MediaType.APPLICATION_JSON})
 @Path("/v1/customer")
