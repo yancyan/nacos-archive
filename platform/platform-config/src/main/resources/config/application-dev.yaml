@@ -5,3 +5,15 @@ star:
   port:
     partner-service: ${star.server.port:11111}
     customer-service: ${star.server.port:11112}
+
+# dev-f1
+#star:
+#  # 启动端口
+#  tomcat-port: ${star.port.${spring.application.name}}
+#  port:
+#    partner-service: ${star.server.port:1000}
+#    customer-service: ${star.server.port:1001}
+#  config:
+#    partner-service:
+#      test: true
+#      test-name: 'zhuyx-dup-'

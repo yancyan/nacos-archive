@@ -14,3 +14,14 @@ server:
 #      enabled: false
 #    mbeanregistry:
 #      enabled: true
+
+#---
+#spring:
+#  profiles: dev-f1
+#star:
+#  url: localhost
+#  #  启动端口
+#  tomcat-port: ${star.port.${spring.application.name}}
+#  port:
+#    partner-service: ${star.server.port:11111}
+#    customer-service: ${star.server.port:11112}

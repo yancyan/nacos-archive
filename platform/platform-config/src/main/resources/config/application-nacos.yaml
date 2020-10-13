@@ -1,5 +1,14 @@
- spring:
+spring:
   cloud:
     nacos:
       discovery:
         server-addr: 10.0.251.217:8848
+
+---
+spring:
+  profiles: dev-f1
+  cloud:
+    nacos:
+      discovery:
+        namespace: startimes-dev-f1
+

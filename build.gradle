@@ -60,10 +60,10 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         implementation "io.github.openfeign:feign-jaxrs"
         implementation 'io.github.openfeign:feign-okhttp'
         implementation 'org.springframework.boot:spring-boot-starter-jersey'
-        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-// https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery
-//        compile group: 'com.alibaba.cloud', name: 'spring-cloud-starter-alibaba-nacos-discovery', version: '2.2.3.RELEASE'
 
+
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
 
         // For Java 11
 //        compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.7'

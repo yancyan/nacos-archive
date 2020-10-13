@@ -25,4 +25,8 @@ public interface PartnerService {
     @GET
     @Path("findIpAndPort")
     String getIpAndPort();
+
+    @GET
+    @Path("getConfigs")
+    String getConfigs();
 }

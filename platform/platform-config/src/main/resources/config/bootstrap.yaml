@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        prefix: application
+        file-extension: yaml
+        server-addr: 10.0.251.217:8848
+
+---
+spring:
+  profiles: dev-f1
+  cloud:
+    nacos:
+      config:
+        namespace: startimes-dev-f1
+
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      config:
+        namespace: startimes-dev
