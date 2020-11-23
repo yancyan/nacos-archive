@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: partner-service
+  profiles:
+    include: feign,tomcat,jersey,nacos,jpa,common,actuator
+  main:
+    allow-bean-definition-overriding: true
+  messages:
+    basename: messages/message
+    use-code-as-default-message: true
+    encoding: utf-8
+
+
+  jersey:
+    application-path: ${spring.application.name}
+    type: servlet
+    servlet:
+      load-on-startup: 1
+
+
+
+server:
+  port: ${star.tomcat-port:8080}
+  servlet:
+    application-display-name: ${spring.application.name:no-domain}
+    context-path: /
+    session:
+      cookie:
+        path: /
+  tomcat:
+    accept-count: 1000
+    max-threads: 1000
+    connection-timeout: 60s

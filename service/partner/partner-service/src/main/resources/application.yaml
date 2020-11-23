@@ -2,7 +2,7 @@ spring:
   application:
     name: partner-service
   profiles:
-    include: feign,tomcat,jersey,nacos
+    include: feign,tomcat,jersey,nacos,jpa,common,actuator
   main:
     allow-bean-definition-overriding: true
   messages:

@@ -1,0 +1,6 @@
+#logging:
+#  config: "classpath:logback-dev"
+
+spring:
+  jpa:
+    database-platform:

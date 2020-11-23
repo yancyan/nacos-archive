@@ -1,3 +1,4 @@
+
 star:
   url: localhost
 #  启动端口
@@ -17,3 +18,8 @@ star:
 #    partner-service:
 #      test: true
 #      test-name: 'zhuyx-dup-'
+spring:
+  datasource:
+    username: boss_partner
+    password: boss_partner
+    url: jdbc:oracle:thin:@10.0.250.175:1521/bosspdb

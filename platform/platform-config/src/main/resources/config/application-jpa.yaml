@@ -1,0 +1,13 @@
+spring:
+
+  datasource:
+#    username:
+#    password:
+#    url: jdbc:oracle:thin:@10.0.250.174:1521/bosspdb
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+#      jdbc-url:
+      allow-pool-suspension: true
+      maximum-pool-size: 60
+  jpa:
+    open-in-view: false

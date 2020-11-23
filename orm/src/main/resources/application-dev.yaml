@@ -1,0 +1,38 @@
+spring:
+  transaction:
+    default-timeout: 60000
+  datasource:
+    username: boss_partner
+    password: boss_partner
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: XXXX
+    hikari:
+      catalog: true
+  #    hikari:
+#      auto-commit: false
+  #    url: jdbc:oracle:thin:@10.0.250.175:1521/bosspdb
+  jpa:
+    showSql: true
+    database: oracle
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    open-in-view: false
+    properties:
+      hibernate:
+        # Initialize Lazy Proxies or Collections outside a given Transactional Persistence Context.
+        enable_lazy_load_no_trans: true
+        format_sql: true
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+      javax:
+        persistence:
+          sharedCache:
+            # 除非我们用cacheable明确保证需要缓存, 其他情况下针对所有的po对象都不缓存;
+            mode: ENABLE_SELECTIVE
+management:
+  trace:
+    http:
+      enabled: false
+  endpoint:
+    httptrace:
+      enabled: false

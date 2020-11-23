@@ -49,6 +49,9 @@ configure(allprojects.findAll { it.subprojects.empty }) {
 //                    bomProperty 'okhttp3.version', '3.9.1'
             }
             mavenBom('com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.1.0.RELEASE')
+            mavenBom('org.springframework.data:spring-data-releasetrain:Moore-SR4')
+            // https://mvnrepository.com/artifact/org.springframework.data/spring-data-releasetrain
+//            compile group: 'org.springframework.data', name: 'spring-data-releasetrain', version: 'Moore-SR4', ext: 'pom'
         }
     }
 
@@ -56,14 +59,9 @@ configure(allprojects.findAll { it.subprojects.empty }) {
 //        implementation 'org.springframework.boot:spring-boot-starter-jersey'
         implementation 'org.springframework.cloud:spring-cloud-context'
         implementation 'org.springframework.boot:spring-boot-starter'
-        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-        implementation "io.github.openfeign:feign-jaxrs"
-        implementation 'io.github.openfeign:feign-okhttp'
-        implementation 'org.springframework.boot:spring-boot-starter-jersey'
+//        implementation 'org.springframework.retry:spring-retry'
 
-
-        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+//        implementation 'com.netflix.netflix-commons:netflix-statistics:0.1.1'
 
         // For Java 11
 //        compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.7'
@@ -73,9 +71,9 @@ configure(allprojects.findAll { it.subprojects.empty }) {
         compile group: 'javax.activation', name: 'activation', version: '1.1.1'
 
 
-//        implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//        implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-//        implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+        implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
 //        implementation 'io.micrometer:micrometer-registry-prometheus'
 
 
@@ -105,6 +103,19 @@ configure(subprojects.findAll {
     dependencies {
 //        implementation 'org.springframework.cloud:spring-cloud-starter-ribbon'
         implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon'
+        implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+//        implementation "org.springframework.data:spring-data-jpa"
+
+        implementation "io.github.openfeign:feign-jaxrs"
+        implementation 'io.github.openfeign:feign-okhttp'
+        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+        implementation 'org.springframework.boot:spring-boot-starter-jersey'
+
+
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+
+
 //
         implementation "com.oracle.database.jdbc:ojdbc10:${ojdbc10Version}"
         implementation "com.oracle.database.nls:orai18n:${ojdbc10Version}"
