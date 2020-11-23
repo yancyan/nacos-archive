@@ -10,7 +10,7 @@ spring:
       catalog: true
   #    hikari:
 #      auto-commit: false
-  #    url: jdbc:oracle:thin:@10.0.250.175:1521/bosspdb
+  #    url: XXX
   jpa:
     showSql: true
     database: oracle
